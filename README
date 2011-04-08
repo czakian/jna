@@ -1,1 +1,16 @@
-first commit
+This program uses Java Native Access to interface with a native C library so that we can run
+system commands while still using Java. 
+
+The goal of this particular instance is to catch the ctr c character getting sent from the parent process
+to the child process (in this case, petite, which is a scheme interpreter). By using our own pipe, we get
+to watch what is getting sent from the parent to the child and then grab it before it gets written. 
+
+Ultimately, the parent of this program will be JEdit, and this will be part of a Scheme plugin for JEdit. 
+More code to follow later. 
+
+To test this out in the terminal, be sure you have petite installed on your machine, and then run the 
+program with: make run.
+You will get a scheme REPL but if you press ctrl v then ctrl c, you will see that the program catches the character.
+(the ctrl v tells the terminal that this is a literal character). 
+
+P.S. since we catch ctrl c, ctrl d will let you exit.
